@@ -73,13 +73,19 @@ if __name__ == '__main__':
     assignments = False
     while not assignments:
         assignments = assigment_generation(codebook)
-        if not assignments:
-            continue
-        if assignments['Malaya'] != codebook['Mei Mey']:
-            assignments = False
     code_testing(codebook, assignments)
-    print('codebook')
-    pprint.pprint(reverse_codebook(codebook))
-    print()
-    print('assignments')
-    pprint.pprint(assignments)
+    # print('codebook')
+    # pprint.pprint(reverse_codebook(codebook))
+    # print()
+    # print('assignments')
+    # pprint.pprint(assignments)
+
+    for name in PREVENT_LIST:
+        print(name)
+        print()
+        print(f'Secret Santa Assignment Code: {assignments[name]}')
+        print()
+        print('Secret Santa Codebook:')
+        [print(f'{key}: {val}') for key, val in codebook.items()]
+        print()
+        print()
